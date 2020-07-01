@@ -4,6 +4,7 @@ import { Layout, Menu, Breadcrumb, Tabs } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import './Layout.scss';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;

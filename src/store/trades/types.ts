@@ -1,4 +1,5 @@
 export const UPDATE_TRADE_INDEX = 'UPDATE_TRADE_INDEX';
+export const DELETE_TRADE = 'DELETE_TRADE';
 
 export interface TradeType {
   buyerUsername: string;
@@ -20,4 +21,9 @@ interface OpenTradeAction {
   }
 }
 
-export type TradeActionTypes = OpenTradeAction
+interface DeleteTradeAction {
+  type: typeof DELETE_TRADE;
+  tradeIndex: number;
+}
+
+export type TradeActionTypes = OpenTradeAction | DeleteTradeAction

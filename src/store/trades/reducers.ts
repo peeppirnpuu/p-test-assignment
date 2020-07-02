@@ -1,5 +1,8 @@
+import update from 'immutability-helper';
+
 import {
   UPDATE_TRADE_INDEX,
+  DELETE_TRADE,
   TradeState,
   TradeActionTypes
 } from './types'
@@ -41,6 +44,12 @@ export function tradesReducer(
         ...state,
         ...action.payload
       }
+    case DELETE_TRADE:
+      return update(state, {
+        items: {
+          $splice: [[action.tradeIndex, 1]]
+        }
+      });
     default:
       return state
   }

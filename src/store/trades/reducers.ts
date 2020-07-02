@@ -1,10 +1,10 @@
 import update from 'immutability-helper';
 
 import {
+  TradeState,
   UPDATE_TRADE_INDEX,
   CREATE_CHAT_ITEM,
   DELETE_TRADE,
-  TradeState,
   TradeActionTypes
 } from './types'
 

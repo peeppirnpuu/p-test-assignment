@@ -1,5 +1,5 @@
 import React from 'react';
-import { Comment, Input, Tooltip, List } from 'antd';
+import { Comment, Input, List } from 'antd';
 import classnames from 'classnames';
 
 import { ChatItemType } from '../../store/trades/types';

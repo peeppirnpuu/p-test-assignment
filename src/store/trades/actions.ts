@@ -2,7 +2,6 @@ import {
   UPDATE_TRADE_INDEX,
   CREATE_CHAT_ITEM,
   DELETE_TRADE,
-  TradeType,
   TradeActionTypes
 } from './types'
 

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
@@ -8,7 +8,7 @@ import {
   postChatMessage,
   deleteTrade
 } from '../store/trades/actions'
-import { TradeType } from '../store/trades/types';
+import { TradeState } from '../store/trades/types';
 import { RootState } from '../store';
 
 import TradeContent from '../components/Trade/TradeContent';
@@ -16,16 +16,13 @@ import TradeInfo from '../components/Trade/TradeInfo';
 import TradeList from '../components/Trade/TradeList';
 
 interface Props {
-  trades: {
-    items: TradeType[],
-    selectedTradeIndex: number | void
-  };
+  trades: TradeState;
   openTrade: Function;
   postChatMessage: Function;
   deleteTrade: Function;
 }
 
-const Trade: React.SFC<Props> = (props) => {
+const Trades: React.SFC<Props> = (props) => {
   const { trades } = props
   const { items, selectedTradeIndex } = trades
   const selectedTrade = typeof selectedTradeIndex == 'number' && items[selectedTradeIndex]
@@ -68,4 +65,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Trade)
+export default connect(mapStateToProps, mapDispatchToProps)(Trades)

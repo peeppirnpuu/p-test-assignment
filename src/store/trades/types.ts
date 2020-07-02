@@ -1,7 +1,3 @@
-export const UPDATE_TRADE_INDEX = 'UPDATE_TRADE_INDEX';
-export const CREATE_CHAT_ITEM = 'CREATE_CHAT_ITEM';
-export const DELETE_TRADE = 'DELETE_TRADE';
-
 export interface ChatItemType {
   author: string,
   avatar: string,
@@ -22,10 +18,14 @@ export interface TradeType {
   chat: ChatType;
 }
 
-export type TradeState = {
-  items: TradeType[],
-  selectedTradeIndex: number | void
+export interface TradeState {
+  items: TradeType[];
+  selectedTradeIndex: number | void;
 };
+
+export const UPDATE_TRADE_INDEX = 'UPDATE_TRADE_INDEX';
+export const CREATE_CHAT_ITEM = 'CREATE_CHAT_ITEM';
+export const DELETE_TRADE = 'DELETE_TRADE';
 
 interface OpenTradeAction {
   type: typeof UPDATE_TRADE_INDEX;

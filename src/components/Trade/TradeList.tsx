@@ -10,7 +10,6 @@ interface Props {
   history: any,
   tradeItems: TradeType[];
   selectedTradeId: string | void;
-  openTrade: Function; // TODO: Redundant
 }
 
 const TradeItems: React.SFC<Props> = (props) => {

@@ -1,18 +1,8 @@
 import {
-  UPDATE_TRADE_INDEX,
   CREATE_CHAT_ITEM,
   DELETE_TRADE,
   TradeActionTypes
 } from './types'
-
-export function openTrade(index: string): TradeActionTypes {
-  return {
-    type: UPDATE_TRADE_INDEX,
-    payload: {
-      selectedTradeId: index
-    }
-  }
-}
 
 export function postChatMessage(index: number, message: string): TradeActionTypes {
   return {

@@ -5,7 +5,6 @@ import { Layout } from 'antd';
 import _ from 'lodash';
 
 import {
-  openTrade,
   postChatMessage,
   deleteTrade
 } from '../store/trades/actions'
@@ -22,7 +21,6 @@ interface PropTypes {
   location: any,
   history: any,
   trades: TradeState;
-  openTrade: Function;
   postChatMessage: Function;
   deleteTrade: Function;
   session: SessionState;
@@ -65,8 +63,7 @@ class Trades extends React.PureComponent<PropTypes, StateTypes> {
         {items.length > 0 && (
           <TradeList
             tradeItems={items}
-            selectedTradeId={selectedTradeId}
-            openTrade={this.props.openTrade} />
+            selectedTradeId={selectedTradeId} />
         )}
 
         {selectedTrade && (
@@ -94,7 +91,6 @@ const mapStateToProps = (state: RootState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return bindActionCreators({
-    openTrade,
     postChatMessage,
     deleteTrade
   }, dispatch)

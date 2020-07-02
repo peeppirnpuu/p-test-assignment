@@ -2,7 +2,6 @@ import update from 'immutability-helper';
 
 import {
   TradeState,
-  UPDATE_TRADE_INDEX,
   CREATE_CHAT_ITEM,
   DELETE_TRADE,
   TradeActionTypes
@@ -82,8 +81,7 @@ const initialState: TradeState = {
         ]
       }
     },
-  ],
-  selectedTradeId: undefined
+  ]
 }
 
 export function tradesReducer(
@@ -91,11 +89,6 @@ export function tradesReducer(
   action: TradeActionTypes
 ): TradeState {
   switch (action.type) {
-    case UPDATE_TRADE_INDEX:
-      return {
-        ...state,
-        ...action.payload
-      }
     case CREATE_CHAT_ITEM:
       return update(state, {
         items: {

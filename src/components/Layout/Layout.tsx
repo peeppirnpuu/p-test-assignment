@@ -19,6 +19,7 @@ const Layout: React.SFC<Props> = (props) => {
         </Col>
         <Col span={4}>
           <RoleSwitcher />
+          {/* // TODO: Use RoleSwitcher to change role in chat */}
         </Col>
       </Row>
       {props.children}

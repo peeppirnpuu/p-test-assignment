@@ -2,15 +2,17 @@ import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 
 import { TradeType } from '../../store/trades/types';
+import TradeChat from './TradeChat';
 
 interface Props {
   trade: TradeType;
+  postChatMessage: Function;
   deleteTrade: Function;
 }
 
 const TradeContent: React.SFC<Props> = (props) => {
-  const { trade } = props
-  const { paymentMethod } = trade
+  const { trade } = props;
+  const { paymentMethod, chat } = trade;
 
   return (
     <Layout style={{ padding: '0 24px 24px' }}>
@@ -29,6 +31,8 @@ const TradeContent: React.SFC<Props> = (props) => {
       >
         <span onClick={() => props.deleteTrade()}>X</span>
         {paymentMethod}
+
+        <TradeChat chatItems={chat.items} postChatMessage={props.postChatMessage} />
       </Layout.Content>
     </Layout>
   );

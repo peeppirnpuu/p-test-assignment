@@ -5,6 +5,7 @@ import { Layout } from 'antd';
 
 import {
   openTrade,
+  postChatMessage,
   deleteTrade
 } from '../store/trades/actions'
 import { TradeType } from '../store/trades/types';
@@ -20,6 +21,7 @@ interface Props {
     selectedTradeIndex: number | void
   };
   openTrade: Function;
+  postChatMessage: Function;
   deleteTrade: Function;
 }
 
@@ -40,6 +42,7 @@ const Trade: React.SFC<Props> = (props) => {
       {selectedTrade && (
         <TradeContent
           trade={selectedTrade}
+          postChatMessage={(message: string) => props.postChatMessage(selectedTradeIndex, message)}
           deleteTrade={() => props.deleteTrade(selectedTradeIndex)} />
       )}
 
@@ -60,6 +63,7 @@ const mapStateToProps = (state: RootState) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return bindActionCreators({
     openTrade,
+    postChatMessage,
     deleteTrade
   }, dispatch)
 }

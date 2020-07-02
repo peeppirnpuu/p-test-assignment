@@ -1,3 +1,11 @@
 .ant-layout-header {
   padding: 0;
 }
+
+.ant-comment {
+  &.ant-comment--reverse {
+    .ant-comment-inner {
+      flex-direction: row-reverse;
+    }
+  }
+}

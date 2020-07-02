@@ -9,6 +9,7 @@ import {
   deleteTrade
 } from '../store/trades/actions'
 import { TradeState } from '../store/trades/types';
+import { SessionState } from '../store/session/types';
 import { RootState } from '../store';
 
 import TradeContent from '../components/Trade/TradeContent';
@@ -20,10 +21,12 @@ interface Props {
   openTrade: Function;
   postChatMessage: Function;
   deleteTrade: Function;
+  session: SessionState;
+  changeRole: Function;
 }
 
 const Trades: React.SFC<Props> = (props) => {
-  const { trades } = props
+  const { trades, session } = props
   const { items, selectedTradeIndex } = trades
   const selectedTrade = typeof selectedTradeIndex == 'number' && items[selectedTradeIndex]
 
@@ -45,7 +48,8 @@ const Trades: React.SFC<Props> = (props) => {
 
       {selectedTrade && (
         <TradeInfo
-          trade={selectedTrade} />
+          trade={selectedTrade}
+          role={session.role} />
       )}
     </Layout>
   );

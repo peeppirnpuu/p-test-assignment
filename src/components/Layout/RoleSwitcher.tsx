@@ -1,8 +1,12 @@
 import React from 'react';
 import { Switch } from 'antd';
 
+import { SessionState } from '../../store/session/types';
+import { withSession } from '../../containers/Session';
+
 interface Props {
-  onChange: Function;
+  session: SessionState;
+  changeRole: Function;
 }
 
 const RoleSwitcher: React.SFC<Props> = (props) => {
@@ -14,9 +18,9 @@ const RoleSwitcher: React.SFC<Props> = (props) => {
       checkedChildren={checkedValue}
       unCheckedChildren={unCheckedValue}
       defaultChecked
-      onChange={(checked: boolean) => props.onChange(checked ? checkedValue.toLowerCase() : unCheckedValue.toLowerCase())}
+      onChange={(checked: boolean) => props.changeRole(checked ? checkedValue.toLowerCase() : unCheckedValue.toLowerCase())}
     />
   );
 }
 
-export default RoleSwitcher;
+export default withSession(RoleSwitcher);

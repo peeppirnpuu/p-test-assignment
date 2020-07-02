@@ -5,11 +5,11 @@ import {
   TradeActionTypes
 } from './types'
 
-export function openTrade(index: number): TradeActionTypes {
+export function openTrade(index: string): TradeActionTypes {
   return {
     type: UPDATE_TRADE_INDEX,
     payload: {
-      selectedTradeIndex: index
+      selectedTradeId: index
     }
   }
 }

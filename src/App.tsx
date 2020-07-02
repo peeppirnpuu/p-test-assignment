@@ -13,6 +13,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={withSession(Trades)} />
+          <Route exact path="/trade/:tradeId" component={withSession(Trades)} />
         </Switch>
       </Router>
     </Layout>

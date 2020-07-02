@@ -13,7 +13,7 @@ interface WrappedProps {
 
 export function withSession<P>(WrappedComponent: React.ComponentType<P>) {
   class Session extends React.Component<WrappedProps> {
-    public render() {
+    render() {
       return <WrappedComponent {...this.props as P} />
     }
   }

@@ -1,12 +1,16 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Layout, List, Avatar } from 'antd';
 
 import { TradeType } from '../../store/trades/types';
 
 interface Props {
+  match: any,
+  location: any,
+  history: any,
   tradeItems: TradeType[];
-  selectedTradeIndex: number | void;
-  openTrade: Function;
+  selectedTradeId: string | void;
+  openTrade: Function; // TODO: Redundant
 }
 
 const TradeItems: React.SFC<Props> = (props) => {
@@ -15,14 +19,14 @@ const TradeItems: React.SFC<Props> = (props) => {
       <List
         itemLayout="horizontal"
         dataSource={props.tradeItems}
-        renderItem={(item, index) => (
+        renderItem={item => (
           <List.Item onClick={() => {
-            props.openTrade(index);
+            props.history.push(`/trade/${item.id}`)
           }}>
             <List.Item.Meta
               avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
               title={<a href="https://ant.design">{item.buyerUsername}</a>}
-              description={<span>{item.paymentMethod} {props.selectedTradeIndex === index && ('active')}</span>}
+              description={<span>{item.paymentMethod} {props.selectedTradeId === item.id && ('active')}</span>}
             />
           </List.Item>
         )}
@@ -31,4 +35,4 @@ const TradeItems: React.SFC<Props> = (props) => {
   );
 }
 
-export default TradeItems;
+export default withRouter(TradeItems)

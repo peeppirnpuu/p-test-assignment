@@ -2,6 +2,7 @@ import React from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
+import _ from 'lodash';
 
 import {
   openTrade,
@@ -16,7 +17,10 @@ import TradeContent from '../components/Trade/TradeContent';
 import TradeInfo from '../components/Trade/TradeInfo';
 import TradeList from '../components/Trade/TradeList';
 
-interface Props {
+interface PropTypes {
+  match: any,
+  location: any,
+  history: any,
   trades: TradeState;
   openTrade: Function;
   postChatMessage: Function;
@@ -25,34 +29,61 @@ interface Props {
   changeRole: Function;
 }
 
-const Trades: React.SFC<Props> = (props) => {
-  const { trades, session } = props
-  const { items, selectedTradeIndex } = trades
-  const selectedTrade = typeof selectedTradeIndex == 'number' && items[selectedTradeIndex]
+interface StateTypes {
+  selectedTradeId: string | void;
+}
 
-  return (
-    <Layout>
-      {items.length > 0 && (
-        <TradeList
-          tradeItems={items}
-          selectedTradeIndex={selectedTradeIndex}
-          openTrade={props.openTrade} />
-      )}
+class Trades extends React.PureComponent<PropTypes, StateTypes> {
+  constructor(props: any) {
+    super(props)
 
-      {selectedTrade && (
-        <TradeContent
-          trade={selectedTrade}
-          postChatMessage={(message: string) => props.postChatMessage(selectedTradeIndex, message)}
-          deleteTrade={() => props.deleteTrade(selectedTradeIndex)} />
-      )}
+    this.state = {
+      selectedTradeId: undefined
+    }
+  }
 
-      {selectedTrade && (
-        <TradeInfo
-          trade={selectedTrade}
-          role={session.role} />
-      )}
-    </Layout>
-  );
+  componentDidMount() {
+    const { tradeId } = this.props.match.params
+
+    if (tradeId) this.setState({selectedTradeId: tradeId})
+  }
+
+  componentDidUpdate() {
+    const { tradeId } = this.props.match.params
+
+    if (tradeId) this.setState({selectedTradeId: tradeId})
+  }
+
+  render() {
+    const { trades, session } = this.props
+    const { selectedTradeId } = this.state
+    const { items } = trades
+    const selectedTrade = typeof selectedTradeId == 'string' && _.find(items, {id: selectedTradeId})
+
+    return (
+      <Layout>
+        {items.length > 0 && (
+          <TradeList
+            tradeItems={items}
+            selectedTradeId={selectedTradeId}
+            openTrade={this.props.openTrade} />
+        )}
+
+        {selectedTrade && (
+          <TradeContent
+            trade={selectedTrade}
+            postChatMessage={(message: string) => this.props.postChatMessage(selectedTradeId, message)}
+            deleteTrade={() => this.props.deleteTrade(selectedTradeId)} />
+        )}
+
+        {selectedTrade && (
+          <TradeInfo
+            trade={selectedTrade}
+            role={session.role} />
+        )}
+      </Layout>
+    );
+  }
 }
 
 const mapStateToProps = (state: RootState) => {

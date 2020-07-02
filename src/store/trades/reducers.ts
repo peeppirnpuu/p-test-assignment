@@ -11,6 +11,7 @@ import {
 const initialState: TradeState = {
   items: [
     {
+      id: '1YR5YS18',
       buyerUsername: 'Chanaar',
       paymentMethod: 'Amazon Gift Card',
       amount: 15,
@@ -28,6 +29,7 @@ const initialState: TradeState = {
       }
     },
     {
+      id: 'XWNEXCLV',
       buyerUsername: 'Mike',
       paymentMethod: 'iTunes Gift Card',
       amount: 30,
@@ -51,6 +53,7 @@ const initialState: TradeState = {
       }
     },
     {
+      id: 'IUKN5XVR',
       buyerUsername: 'John',
       paymentMethod: 'Amazon Gift Card',
       amount: 45,
@@ -80,7 +83,7 @@ const initialState: TradeState = {
       }
     },
   ],
-  selectedTradeIndex: undefined
+  selectedTradeId: undefined
 }
 
 export function tradesReducer(

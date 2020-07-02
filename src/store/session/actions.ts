@@ -1,4 +1,10 @@
-import { RoleType, UPDATE_SESSION, SessionActionTypes } from './types'
+import {
+  RoleType,
+  SeenMessagesType,
+  UPDATE_SESSION,
+  UPDATE_SESSION_SEEN_MESSAGES,
+  SessionActionTypes
+} from './types'
 
 export function changeRole(role: RoleType): SessionActionTypes {
   return {
@@ -6,5 +12,12 @@ export function changeRole(role: RoleType): SessionActionTypes {
     payload: {
       role: role
     }
+  }
+}
+
+export function markMessagesRead(messages: SeenMessagesType): SessionActionTypes {
+  return {
+    type: UPDATE_SESSION_SEEN_MESSAGES,
+    payload: messages
   }
 }

@@ -10,6 +10,8 @@ interface Props {
 }
 
 const RoleSwitcher: React.SFC<Props> = (props) => {
+  const { session } = props
+
   const checkedValue: string = 'Admin';
   const unCheckedValue: string = 'User';
 
@@ -17,7 +19,7 @@ const RoleSwitcher: React.SFC<Props> = (props) => {
     <Switch
       checkedChildren={checkedValue}
       unCheckedChildren={unCheckedValue}
-      defaultChecked
+      defaultChecked={session.role === checkedValue.toLowerCase()}
       onChange={(checked: boolean) => props.changeRole(checked ? checkedValue.toLowerCase() : unCheckedValue.toLowerCase())}
     />
   );

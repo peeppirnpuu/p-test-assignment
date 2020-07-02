@@ -9,6 +9,7 @@ export function postChatMessage(index: number, message: string): TradeActionType
     type: CREATE_CHAT_ITEM,
     tradeIndex: index,
     payload: {
+      id: 'VSKYSLV2',
       author: 'user',
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
       content: message,

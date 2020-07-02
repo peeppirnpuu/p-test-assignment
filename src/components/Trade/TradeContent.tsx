@@ -6,6 +6,8 @@ import TradeChat from './TradeChat';
 
 interface Props {
   trade: TradeType;
+  readMessages: any[];
+  markMessagesRead: Function;
   postChatMessage: Function;
   deleteTrade: Function;
 }
@@ -32,7 +34,11 @@ const TradeContent: React.SFC<Props> = (props) => {
         <span onClick={() => props.deleteTrade()}>X</span>
         {paymentMethod}
 
-        <TradeChat chatItems={chat.items} postChatMessage={props.postChatMessage} />
+        <TradeChat
+          messages={chat.items}
+          readMessages={props.readMessages}
+          markMessagesRead={props.markMessagesRead}
+          postChatMessage={props.postChatMessage} />
       </Layout.Content>
     </Layout>
   );

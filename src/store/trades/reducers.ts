@@ -15,10 +15,10 @@ const initialState: TradeState = {
       paymentMethod: 'Amazon Gift Card',
       amount: 15,
       tradeStatus: 'Not Paid',
-      unread: false,
       chat: {
         items: [
           {
+            id: 'MJBQJDMT',
             author: 'user',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
@@ -33,16 +33,17 @@ const initialState: TradeState = {
       paymentMethod: 'iTunes Gift Card',
       amount: 30,
       tradeStatus: 'Not Paid',
-      unread: false,
       chat: {
         items: [
           {
+            id: 'HH8ZIX6G',
             author: 'admin',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
           },
           {
+            id: '3F58QIGC',
             author: 'user',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
@@ -57,22 +58,24 @@ const initialState: TradeState = {
       paymentMethod: 'Amazon Gift Card',
       amount: 45,
       tradeStatus: 'Not Paid',
-      unread: false,
       chat: {
         items: [
           {
+            id: 'OM2HY208',
             author: 'user',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
           },
           {
+            id: 'AKZ07DAU',
             author: 'admin',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
           },
           {
+            id: '5IW95YKQ',
             author: 'user',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',

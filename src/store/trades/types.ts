@@ -1,8 +1,9 @@
 export interface ChatItemType {
-  author: string,
-  avatar: string,
-  content: string,
-  timestamp: number
+  id: string;
+  author: string;
+  avatar: string;
+  content: string;
+  timestamp: number;
 }
 
 export interface ChatType {
@@ -15,7 +16,6 @@ export interface TradeType {
   paymentMethod: string;
   amount: number;
   tradeStatus: string;
-  unread: boolean;
   chat: ChatType;
 }
 

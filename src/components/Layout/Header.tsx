@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import { Col, Layout, Menu, Row } from 'antd';
 
 import Logo from './Logo'
@@ -18,8 +19,10 @@ const Header: React.SFC<PropTypes> = (props) => {
   return (
     <Layout.Header className="header">
       <Row>
-        <Col span={4} className="display--flex align-items--center justify-content--center">
-          <Logo />
+        <Col span={4}>
+          <NavLink to="/" className="logo-link">
+            <Logo />
+          </NavLink>
         </Col>
         <Col span={20}>
           {menuItems.length > 0 && (

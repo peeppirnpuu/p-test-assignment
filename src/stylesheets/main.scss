@@ -20,13 +20,29 @@ $colorDanger: #d0082b;
 .padding-top--50 { padding-top: 50px; }
 .text-align--center { text-align: center; }
 
-.logo {
-  height: 30px;
-  margin: 0 20px;
+.logo-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  .logo {
+    height: 30px;
+    margin: 0 20px;
+  }
 }
 
 .ant-layout-header {
   padding: 0;
+}
+
+.ant-layout-sider {
+  &.ant-layout-sider-collapsed {
+    .ant-layout-sider-children {
+      display: none;
+    }
+  }
 }
 
 .ant-comment {

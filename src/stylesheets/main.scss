@@ -72,6 +72,16 @@ $colorDanger: #d0082b;
     background-color: $colorNeutralWhite;
     position: relative;
     left: 8px;
+
+    .ant-list-item-meta {
+      .ant-list-item-meta-content {
+        .ant-list-item-meta-content-title {
+          &::before {
+            background-color: $colorStateActive;
+          }
+        }
+      }
+    }
   }
 
   &.ant-list-item--unread {

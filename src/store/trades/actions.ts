@@ -4,13 +4,13 @@ import {
   TradeActionTypes
 } from './types'
 
-export function postChatMessage(tradeId: string, message: string): TradeActionTypes {
+export function postChatMessage(tradeId: string, message: string, role: string): TradeActionTypes {
   return {
     type: CREATE_CHAT_ITEM,
     tradeId: tradeId,
     payload: {
       id: 'VSKYSLV2',
-      author: 'user',
+      author: role,
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
       content: message,
       timestamp: 1591034680

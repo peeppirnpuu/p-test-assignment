@@ -15,13 +15,16 @@ interface PropTypes {
 }
 
 interface StateTypes {
+  currentMessage: string;
 }
 
 class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
   constructor(props: any) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      currentMessage: ''
+    }
   }
 
   componentDidMount() {
@@ -31,7 +34,7 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
     if (unreadMessages) this.props.markMessagesRead(unreadMessages);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps: any, prevState: any) {
     const { messages, readMessages } = this.props;
 
     const unreadMessages = _.difference(messages.map(message => message.id), readMessages);
@@ -40,6 +43,7 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
 
   render() {
     const { messages } = this.props;
+    const { currentMessage } = this.state;
 
     const className = (isAdmin: boolean) => classnames({
       'ant-comment--reverse': isAdmin
@@ -66,8 +70,16 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
           )}
         />
 
-        <Search placeholder="Type your message..." onSearch={value => this.props.postChatMessage(value)} enterButton="Send" />
         {/* // Use design system's Search component, as inline enter button is not included with Input component */}
+        <Search
+          placeholder="Type your message..."
+          value={currentMessage}
+          onChange={(e) => this.setState({currentMessage: e.target.value})}
+          onSearch={(value) => {
+            this.props.postChatMessage(value);
+            this.setState({currentMessage: ''});
+          }}
+          enterButton="Send" />
       </React.Fragment>
     );
   }

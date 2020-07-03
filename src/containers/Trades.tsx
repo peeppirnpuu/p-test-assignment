@@ -17,9 +17,9 @@ import TradeInfo from '../components/Trade/TradeInfo';
 import TradeList from '../components/Trade/TradeList';
 
 interface Props {
-  match: any,
-  location: any,
-  history: any,
+  match: any;
+  location: any;
+  history: any;
   trades: TradeState;
   markMessagesRead: Function;
   postChatMessage: Function;
@@ -49,7 +49,7 @@ const Trades: React.SFC<Props> = (props) => {
           trade={selectedTrade}
           readMessages={readMessages}
           markMessagesRead={props.markMessagesRead}
-          postChatMessage={(message: string) => props.postChatMessage(tradeId, message)}
+          postChatMessage={(message: string) => props.postChatMessage(tradeId, message, session.role)}
           deleteTrade={() => props.deleteTrade(tradeId)} />
       )}
 

@@ -3,8 +3,14 @@ $colorNeutralBlack: #000000;
 $colorStateNew: #5bd2c3;
 $colorStateActive: #c9c9ca;
 $colorStateOld: #89898b;
+$colorSuccess: #3ebc6c;
+$colorDanger: #d0082b;
 
 .background-color--white { background-color: $colorNeutralWhite; }
+.color--new { color: $colorStateNew; }
+.color--old { color: $colorStateOld; }
+.color--success { color: $colorSuccess; }
+.color--danger { color: $colorDanger; }
 .display--flex { display: flex; }
 .align-items--center { align-items: center; }
 .justify-content--center { justify-content: center; }
@@ -21,6 +27,16 @@ $colorStateOld: #89898b;
   &.ant-comment--reverse {
     .ant-comment-inner {
       flex-direction: row-reverse;
+
+      .ant-comment-content {
+        .ant-comment-content-author {
+          justify-content: flex-end;
+        }
+
+        .ant-comment-content-detail {
+          text-align: right;
+        }
+      }
     }
   }
 }
@@ -48,8 +64,35 @@ $colorStateOld: #89898b;
     }
   }
 
+  &.ant-list-item--paid {
+    .ant-list-item-meta {
+      .ant-list-item-meta-avatar {
+        &::after {
+          color: $colorStateNew;
+          content: "PAID";
+        }
+      }
+    }
+  }
+
   .ant-list-item-meta {
     flex-direction: row-reverse;
+
+    .ant-list-item-meta-avatar {
+      &::after {
+        color: $colorStateOld;
+        content: "NOT PAID";
+        display: block;
+        font-size: 10px;
+        font-weight: bold;
+        position: absolute;
+        margin: auto;
+        margin-top: 10px;
+        margin-left: -10px;
+        text-align: center;
+        width: 50px;
+      }
+    }
 
     .ant-list-item-meta-content {
       margin-left: 16px;

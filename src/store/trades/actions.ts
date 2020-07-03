@@ -1,5 +1,6 @@
 import {
   CREATE_CHAT_ITEM,
+  UPDATE_TRADE_STATUS_PAID,
   DELETE_TRADE,
   TradeActionTypes
 } from './types'
@@ -13,8 +14,15 @@ export function postChatMessage(tradeId: string, message: string, role: string):
       author: role,
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
       content: message,
-      timestamp: 1591034680
+      timestamp: Math.round((new Date()).getTime() / 1000)
     }
+  }
+}
+
+export function markTradeAsPaid(tradeId: string): TradeActionTypes {
+  return {
+    type: UPDATE_TRADE_STATUS_PAID,
+    tradeId: tradeId
   }
 }
 

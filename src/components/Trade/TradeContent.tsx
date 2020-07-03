@@ -35,7 +35,7 @@ const TradeContent: React.SFC<Props> = (props) => {
           </Col>
           <Col span={16} className="text-align--center">
             <h2>{paymentMethod}</h2>
-            <h3>{trade.buyerUsername}</h3>
+            <h3>{trade.buyerUsername} <span className="color--success">+37</span> / <span className="color--danger">-1</span></h3>
           </Col>
           <Col span={4}>
           </Col>

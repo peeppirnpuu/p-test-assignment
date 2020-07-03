@@ -6,6 +6,7 @@ import _ from 'lodash';
 
 import {
   postChatMessage,
+  markTradeAsPaid,
   deleteTrade
 } from '../store/trades/actions'
 import { TradeState } from '../store/trades/types';
@@ -21,6 +22,7 @@ interface Props {
   location: any;
   history: any;
   trades: TradeState;
+  markTradeAsPaid: Function;
   markMessagesRead: Function;
   postChatMessage: Function;
   deleteTrade: Function;
@@ -56,7 +58,9 @@ const Trades: React.SFC<Props> = (props) => {
       )}
 
       {selectedTrade && (
-        <TradeInfo trade={selectedTrade} />
+        <TradeInfo
+          trade={selectedTrade}
+          markTradeAsPaid={props.markTradeAsPaid} />
       )}
     </Layout>
   );
@@ -71,6 +75,7 @@ const mapStateToProps = (state: RootState) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return bindActionCreators({
     postChatMessage,
+    markTradeAsPaid,
     deleteTrade
   }, dispatch)
 }

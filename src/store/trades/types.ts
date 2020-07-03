@@ -15,7 +15,7 @@ export interface TradeType {
   buyerUsername: string;
   paymentMethod: string;
   amount: number;
-  tradeStatus: string;
+  tradeStatusIsPaid: boolean;
   chat: ChatType;
 }
 
@@ -24,12 +24,18 @@ export interface TradeState {
 };
 
 export const CREATE_CHAT_ITEM = 'CREATE_CHAT_ITEM';
+export const UPDATE_TRADE_STATUS_PAID = 'UPDATE_TRADE_STATUS_PAID';
 export const DELETE_TRADE = 'DELETE_TRADE';
 
-interface postChatMessageAction {
+interface PostChatMessageAction {
   type: typeof CREATE_CHAT_ITEM;
   tradeId: string;
   payload: ChatItemType;
+}
+
+interface UpdateTradeStatusPaidAction {
+  type: typeof UPDATE_TRADE_STATUS_PAID;
+  tradeId: string;
 }
 
 interface DeleteTradeAction {
@@ -37,4 +43,4 @@ interface DeleteTradeAction {
   tradeId: string;
 }
 
-export type TradeActionTypes = postChatMessageAction | DeleteTradeAction
+export type TradeActionTypes = PostChatMessageAction | UpdateTradeStatusPaidAction | DeleteTradeAction

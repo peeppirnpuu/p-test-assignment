@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 import { Comment, Input, List } from 'antd';
 import classnames from 'classnames';
 import _ from 'lodash';
@@ -64,7 +65,7 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
                 author={item.author}
                 avatar={item.avatar}
                 content={item.content}
-                datetime={item.timestamp}
+                datetime={<Moment unix format="HH:mm D MMMM YYYY">{item.timestamp}</Moment>}
               />
             </li>
           )}

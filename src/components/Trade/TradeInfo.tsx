@@ -5,6 +5,7 @@ import { TradeType } from '../../store/trades/types';
 
 interface Props {
   trade: TradeType;
+  markTradeAsPaid: Function;
 }
 
 const TradeInfo: React.SFC<Props> = (props) => {
@@ -17,14 +18,15 @@ const TradeInfo: React.SFC<Props> = (props) => {
       <h3>Started 23 minutes ago</h3>
 
       <div className="padding-top--25">
-        <Button type="primary" shape="round" size="large">
+        <Button type="primary" shape="round" size="large" onClick={() => props.markTradeAsPaid(trade.id)}>
           Release bitcoins
         </Button>
       </div>
 
       <Row gutter={[0, 24]} className="padding-top--50">
         <Col span={12}>
-          <Statistic title={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />} value="+37" suffix="/ -1" />
+          <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+          <h3><span className="color--success">+37</span> / <span className="color--danger">-1</span></h3>
         </Col>
         <Col span={12}>
           <Statistic title="# of trades" value={4} />

@@ -35,7 +35,7 @@ export function sessionReducer(
             $push: action.payload
           }
         }
-      });
+      })
     }
     default:
       return state

@@ -18,9 +18,10 @@ interface Props {
 const TradeItems: React.SFC<Props> = (props) => {
   const { tradeItems, readMessages } = props
 
-  const className = (active: boolean, unread: boolean) => classnames({
+  const className = (active: boolean, unread: boolean, paid: boolean) => classnames({
     'ant-list-item--active': active,
-    'ant-list-item--unread': unread
+    'ant-list-item--unread': unread,
+    'ant-list-item--paid': paid
   });
 
   return (
@@ -35,7 +36,7 @@ const TradeItems: React.SFC<Props> = (props) => {
 
           return (
             <List.Item
-              className={className(props.selectedTradeId === item.id, unreadMessages.length > 0)}
+              className={className(props.selectedTradeId === item.id, unreadMessages.length > 0, item.tradeStatusIsPaid)}
               onClick={() => {
                 props.history.push(`/trade/${item.id}`);
               }}>

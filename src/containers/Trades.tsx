@@ -33,7 +33,7 @@ const Trades: React.SFC<Props> = (props) => {
   const { tradeId } = match.params
   const { items } = trades
   const selectedTrade = typeof tradeId == 'string' && _.find(items, {id: tradeId})
-  const readMessages = session.role === 'admin' ? session.seenMessagesByRole.admin : session.seenMessagesByRole.user
+  const readMessages = session.role === 'seller' ? session.seenMessagesByRole.seller : session.seenMessagesByRole.buyer
 
   return (
     <Layout>

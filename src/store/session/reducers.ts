@@ -10,10 +10,10 @@ import {
 const initialState: SessionState = {
   loggedIn: false,
   userName: '',
-  role: 'user',
+  role: 'buyer',
   seenMessagesByRole: {
-    admin: [],
-    user: []
+    buyer: [],
+    seller: []
   }
 }
 

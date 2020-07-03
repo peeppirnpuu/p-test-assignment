@@ -3,8 +3,8 @@ export type RoleType = string;
 export type SeenMessagesType = any[];
 
 export interface SeenMessagesByRoleType {
-  admin: SeenMessagesType;
-  user: SeenMessagesType;
+  buyer: SeenMessagesType;
+  seller: SeenMessagesType;
 }
 
 export interface SessionState {

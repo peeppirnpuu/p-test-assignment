@@ -59,7 +59,7 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
           renderItem={item => (
             <li>
               <Comment
-                className={className(item.author === 'admin')}
+                className={className(item.author === 'seller')}
                 // actions={item.actions}
                 author={item.author}
                 avatar={item.avatar}

@@ -12,8 +12,8 @@ interface Props {
 const RoleSwitcher: React.SFC<Props> = (props) => {
   const { session } = props
 
-  const checkedValue: string = 'Admin';
-  const unCheckedValue: string = 'User';
+  const checkedValue: string = 'Seller';
+  const unCheckedValue: string = 'Buyer';
 
   return (
     <Switch

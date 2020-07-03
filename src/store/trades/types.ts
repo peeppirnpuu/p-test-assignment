@@ -28,13 +28,13 @@ export const DELETE_TRADE = 'DELETE_TRADE';
 
 interface postChatMessageAction {
   type: typeof CREATE_CHAT_ITEM;
-  tradeIndex: number;
+  tradeId: string;
   payload: ChatItemType;
 }
 
 interface DeleteTradeAction {
   type: typeof DELETE_TRADE;
-  tradeIndex: number;
+  tradeId: string;
 }
 
 export type TradeActionTypes = postChatMessageAction | DeleteTradeAction

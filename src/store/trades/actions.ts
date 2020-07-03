@@ -4,10 +4,10 @@ import {
   TradeActionTypes
 } from './types'
 
-export function postChatMessage(index: number, message: string): TradeActionTypes {
+export function postChatMessage(tradeId: string, message: string): TradeActionTypes {
   return {
     type: CREATE_CHAT_ITEM,
-    tradeIndex: index,
+    tradeId: tradeId,
     payload: {
       id: 'VSKYSLV2',
       author: 'user',
@@ -18,9 +18,9 @@ export function postChatMessage(index: number, message: string): TradeActionType
   }
 }
 
-export function deleteTrade(index: number): TradeActionTypes {
+export function deleteTrade(tradeId: string): TradeActionTypes {
   return {
     type: DELETE_TRADE,
-    tradeIndex: index
+    tradeId: tradeId
   }
 }

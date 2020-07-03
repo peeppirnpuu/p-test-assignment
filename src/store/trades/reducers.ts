@@ -1,4 +1,5 @@
 import update from 'immutability-helper';
+import _ from 'lodash';
 
 import {
   TradeState,
@@ -95,7 +96,7 @@ export function tradesReducer(
     case CREATE_CHAT_ITEM:
       return update(state, {
         items: {
-          [action.tradeIndex]: {
+          [_.findIndex(state.items, {id: action.tradeId})]: {
             chat: {
               items: {
                 $push: [action.payload]
@@ -107,7 +108,7 @@ export function tradesReducer(
     case DELETE_TRADE:
       return update(state, {
         items: {
-          $splice: [[action.tradeIndex, 1]]
+          $splice: [[_.findIndex(state.items, {id: action.tradeId}), 1]]
         }
       });
     default:

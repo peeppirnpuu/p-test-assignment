@@ -46,8 +46,8 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
     const { messages } = this.props
     const { currentMessage } = this.state
 
-    const className = (isAdmin: boolean) => classnames({
-      'ant-comment--reverse': isAdmin
+    const className = (isBuyer: boolean) => classnames({
+      'ant-comment--reverse': isBuyer
     })
 
     return (
@@ -60,7 +60,7 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
           renderItem={item => (
             <li>
               <Comment
-                className={className(item.author === 'seller')}
+                className={className(item.author === 'buyer')}
                 author={item.author}
                 avatar={item.avatar}
                 content={item.content}

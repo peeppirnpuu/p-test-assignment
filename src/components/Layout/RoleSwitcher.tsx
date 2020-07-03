@@ -12,13 +12,13 @@ interface PropTypes {
 const RoleSwitcher: React.SFC<PropTypes> = (props) => {
   const { session } = props
 
-  const checkedValue: string = 'Seller'
-  const unCheckedValue: string = 'Buyer'
+  const unCheckedValue: string = 'Seller'
+  const checkedValue: string = 'Buyer'
 
   return (
     <Switch
-      checkedChildren={checkedValue}
       unCheckedChildren={unCheckedValue}
+      checkedChildren={checkedValue}
       defaultChecked={session.role === checkedValue.toLowerCase()}
       onChange={(checked: boolean) => props.changeRole(checked ? checkedValue.toLowerCase() : unCheckedValue.toLowerCase())}
     />

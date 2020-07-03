@@ -97,21 +97,21 @@ const initialState: TradeState = {
         items: [
           {
             id: 'FF6XGV4E',
-            author: 'admin',
+            author: 'seller',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
           },
           {
             id: 'FC4IC5FM',
-            author: 'user',
+            author: 'buyer',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
           },
           {
             id: 'AA1SAQZ8',
-            author: 'user',
+            author: 'buyer',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
@@ -129,14 +129,14 @@ const initialState: TradeState = {
         items: [
           {
             id: 'MK0FW0Y6',
-            author: 'admin',
+            author: 'seller',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
           },
           {
             id: '8IXY5B8S',
-            author: 'user',
+            author: 'buyer',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
@@ -154,21 +154,21 @@ const initialState: TradeState = {
         items: [
           {
             id: 'PNRGCH2B',
-            author: 'user',
+            author: 'buyer',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
           },
           {
             id: 'ALOQK1C7',
-            author: 'admin',
+            author: 'seller',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680
           },
           {
             id: 'WJLZJMV3',
-            author: 'user',
+            author: 'buyer',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
             timestamp: 1591034680

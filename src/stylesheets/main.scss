@@ -1,3 +1,18 @@
+$colorNeutralWhite: #ffffff;
+$colorNeutralBlack: #000000;
+$colorStateNew: #5bd2c3;
+$colorStateActive: #c9c9ca;
+$colorStateOld: #89898b;
+
+.background-color--white { background-color: $colorNeutralWhite; }
+.display--flex { display: flex; }
+.align-items--center { align-items: center; }
+.justify-content--center { justify-content: center; }
+.padding-top--25 { padding-top: 25px; }
+.padding-top--50 { padding-top: 50px; }
+.margin--auto { margin: auto; }
+.text-align--center { text-align: center; }
+
 .ant-layout-header {
   padding: 0;
 }
@@ -6,6 +21,50 @@
   &.ant-comment--reverse {
     .ant-comment-inner {
       flex-direction: row-reverse;
+    }
+  }
+}
+
+.ant-list-item {
+  user-select: none;
+
+  &.ant-list-item--active {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: $colorNeutralWhite;
+    position: relative;
+    left: 8px;
+  }
+
+  &.ant-list-item--unread {
+    .ant-list-item-meta {
+      .ant-list-item-meta-content {
+        .ant-list-item-meta-content-title {
+          &::before {
+            background-color: $colorStateNew;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-list-item-meta {
+    flex-direction: row-reverse;
+
+    .ant-list-item-meta-content {
+      margin-left: 16px;
+
+      .ant-list-item-meta-content-title {
+        &::before {
+          background-color: $colorStateOld;
+          border-radius: 50%;
+          content: "";
+          display: inline-block;
+          height: 8px;
+          margin-right: 8px;
+          width: 8px;
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { Layout } from 'antd';
+import { Empty, Layout } from 'antd';
 import _ from 'lodash';
 
 import {
@@ -44,19 +44,19 @@ const Trades: React.SFC<Props> = (props) => {
           readMessages={readMessages} />
       )}
 
-      {selectedTrade && (
+      {selectedTrade ? (
         <TradeContent
           trade={selectedTrade}
           readMessages={readMessages}
           markMessagesRead={props.markMessagesRead}
           postChatMessage={(message: string) => props.postChatMessage(tradeId, message, session.role)}
           deleteTrade={() => props.deleteTrade(tradeId)} />
+      ) : (
+        <Empty className="margin--auto" />
       )}
 
       {selectedTrade && (
-        <TradeInfo
-          trade={selectedTrade}
-          role={session.role} />
+        <TradeInfo trade={selectedTrade} />
       )}
     </Layout>
   );

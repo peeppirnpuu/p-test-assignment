@@ -9,14 +9,14 @@ import Trades from './containers/Trades';
 
 function App() {
   return (
-    <Layout>
-      <Router>
+    <Router>
+      <Layout>
         <Switch>
           <Route exact path="/" component={withSession(Trades)} />
           <Route exact path="/trade/:tradeId" component={withSession(Trades)} />
         </Switch>
-      </Router>
-    </Layout>
+      </Layout>
+    </Router>
   );
 }
 

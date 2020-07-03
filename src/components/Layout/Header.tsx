@@ -17,7 +17,7 @@ const Header: React.SFC<Props> = (props) => {
     <Layout.Header className="header">
       <div className="logo" />
       {menuItems.length > 0 && (
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} onSelect={({ key }) => alert(key)}>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
           {menuItems.map((title, index) => <Menu.Item key={index}>{title}</Menu.Item>)}
         </Menu>
       )}

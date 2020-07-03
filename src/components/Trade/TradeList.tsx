@@ -1,14 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Layout, List, Avatar } from 'antd';
+import classnames from 'classnames';
 import _ from 'lodash';
 
 import { TradeType } from '../../store/trades/types';
 
 interface Props {
-  match: any,
-  location: any,
-  history: any,
+  match: any;
+  location: any;
+  history: any;
   tradeItems: TradeType[];
   selectedTradeId: string | void;
   readMessages: any[];
@@ -16,6 +17,11 @@ interface Props {
 
 const TradeItems: React.SFC<Props> = (props) => {
   const { tradeItems, readMessages } = props
+
+  const className = (active: boolean, unread: boolean) => classnames({
+    'ant-list-item--active': active,
+    'ant-list-item--unread': unread
+  });
 
   return (
     <Layout.Sider width={300} className="site-layout-background ant-layout-sider-light">
@@ -28,18 +34,23 @@ const TradeItems: React.SFC<Props> = (props) => {
           const unreadMessages = _.difference(items.map(message => message.id), readMessages);
 
           return (
-            <List.Item onClick={() => {
-              props.history.push(`/trade/${item.id}`)
-            }}>
+            <List.Item
+              className={className(props.selectedTradeId === item.id, unreadMessages.length > 0)}
+              onClick={() => {
+                props.history.push(`/trade/${item.id}`);
+              }}>
               <List.Item.Meta
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                title={<a href="https://ant.design">{item.buyerUsername}</a>}
+                title={
+                  <div className="ant-list-item-meta-content-title">
+                    <small>{item.buyerUsername} <strong>is buying</strong></small>
+                  </div>
+                }
                 description={
-                  <span>
-                    {item.paymentMethod} &nbsp;
-                    {unreadMessages.length > 0 && ('unread')} &nbsp;
-                    {props.selectedTradeId === item.id && ('active')}
-                  </span>
+                  <div>
+                    {item.paymentMethod}<br />
+                    <small>{item.amount}USD</small>
+                  </div>
                 }
               />
             </List.Item>

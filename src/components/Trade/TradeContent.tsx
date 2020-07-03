@@ -1,5 +1,6 @@
 import React from 'react';
-import { Layout, Breadcrumb } from 'antd';
+import { Button, Col, Layout, Row, Tooltip } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 
 import { TradeType } from '../../store/trades/types';
 import TradeChat from './TradeChat';
@@ -18,11 +19,6 @@ const TradeContent: React.SFC<Props> = (props) => {
 
   return (
     <Layout style={{ padding: '0 24px 24px' }}>
-      <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb>
       <Layout.Content
         className="site-layout-background"
         style={{
@@ -31,8 +27,19 @@ const TradeContent: React.SFC<Props> = (props) => {
           minHeight: 280,
         }}
       >
-        <span onClick={() => props.deleteTrade()}>X</span>
-        {paymentMethod}
+        <Row>
+          <Col span={4}>
+            <Tooltip title="Delete">
+              <Button type="default" shape="circle" icon={<DeleteOutlined />} onClick={() => props.deleteTrade()} />
+            </Tooltip>
+          </Col>
+          <Col span={16} className="text-align--center">
+            <h2>{paymentMethod}</h2>
+            <h3>{trade.buyerUsername}</h3>
+          </Col>
+          <Col span={4}>
+          </Col>
+        </Row>
 
         <TradeChat
           messages={chat.items}

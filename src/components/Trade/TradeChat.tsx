@@ -1,22 +1,22 @@
-import React from 'react';
-import Moment from 'react-moment';
-import { Comment, Input, List } from 'antd';
-import classnames from 'classnames';
-import _ from 'lodash';
+import React from 'react'
+import Moment from 'react-moment'
+import { Comment, Input, List } from 'antd'
+import classnames from 'classnames'
+import _ from 'lodash'
 
-import { ChatItemType } from '../../store/trades/types';
+import { ChatItemType } from '../../store/trades/types'
 
-const { Search } = Input;
+const { Search } = Input
 
 interface PropTypes {
-  messages: ChatItemType[];
-  readMessages: any[];
-  postChatMessage: Function;
-  markMessagesRead: Function;
+  messages: ChatItemType[]
+  readMessages: any[]
+  postChatMessage: Function
+  markMessagesRead: Function
 }
 
 interface StateTypes {
-  currentMessage: string;
+  currentMessage: string
 }
 
 class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
@@ -29,26 +29,26 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
   }
 
   componentDidMount() {
-    const { messages } = this.props;
+    const { messages } = this.props
 
-    const unreadMessages = messages.map(message => message.id);
-    if (unreadMessages) this.props.markMessagesRead(unreadMessages);
+    const unreadMessages = messages.map(message => message.id)
+    if (unreadMessages) this.props.markMessagesRead(unreadMessages)
   }
 
   componentDidUpdate(prevProps: any, prevState: any) {
-    const { messages, readMessages } = this.props;
+    const { messages, readMessages } = this.props
 
-    const unreadMessages = _.difference(messages.map(message => message.id), readMessages);
-    if (unreadMessages) this.props.markMessagesRead(unreadMessages);
+    const unreadMessages = _.difference(messages.map(message => message.id), readMessages)
+    if (unreadMessages) this.props.markMessagesRead(unreadMessages)
   }
 
   render() {
-    const { messages } = this.props;
-    const { currentMessage } = this.state;
+    const { messages } = this.props
+    const { currentMessage } = this.state
 
     const className = (isAdmin: boolean) => classnames({
       'ant-comment--reverse': isAdmin
-    });
+    })
 
     return (
       <React.Fragment>
@@ -61,7 +61,6 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
             <li>
               <Comment
                 className={className(item.author === 'seller')}
-                // actions={item.actions}
                 author={item.author}
                 avatar={item.avatar}
                 content={item.content}
@@ -77,13 +76,13 @@ class TradeChat extends React.PureComponent<PropTypes, StateTypes> {
           value={currentMessage}
           onChange={(e) => this.setState({currentMessage: e.target.value})}
           onSearch={(value) => {
-            this.props.postChatMessage(value);
-            this.setState({currentMessage: ''});
+            this.props.postChatMessage(value)
+            this.setState({currentMessage: ''})
           }}
           enterButton="Send" />
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default TradeChat;
+export default TradeChat

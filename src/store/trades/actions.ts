@@ -1,6 +1,5 @@
-import { Dispatch } from 'redux';
-import fetch from 'cross-fetch';
-import axios from 'axios';
+import { Dispatch } from 'redux'
+import fetch from 'cross-fetch'
 
 import {
   CREATE_CHAT_ITEM,

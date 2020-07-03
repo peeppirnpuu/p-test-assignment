@@ -1,19 +1,19 @@
-import React from 'react';
-import { Avatar, Button, Col, Layout, Statistic, Row } from 'antd';
+import React from 'react'
+import { Avatar, Button, Col, Layout, Statistic, Row } from 'antd'
 
-import { TradeType } from '../../store/trades/types';
+import { TradeType } from '../../store/trades/types'
 
-interface Props {
-  trade: TradeType;
-  markTradeAsPaid: Function;
-  bitcoinExchangeRate: number;
+interface PropTypes {
+  trade: TradeType
+  markTradeAsPaid: Function
+  bitcoinExchangeRate: number
 }
 
-const TradeInfo: React.SFC<Props> = (props) => {
+const TradeInfo: React.SFC<PropTypes> = (props) => {
   const { trade, bitcoinExchangeRate } = props
   const { buyerUsername } = trade
 
-  const amountInBtc = trade.amount/bitcoinExchangeRate;
+  const amountInBtc = trade.amount/bitcoinExchangeRate
 
   return (
     <Layout.Sider width={300} breakpoint="lg" collapsedWidth={0} reverseArrow className="site-layout-background ant-layout-sider-light padding-top--25 text-align--center">
@@ -48,7 +48,7 @@ const TradeInfo: React.SFC<Props> = (props) => {
         </Col>
       </Row>
     </Layout.Sider>
-  );
+  )
 }
 
-export default TradeInfo;
+export default TradeInfo

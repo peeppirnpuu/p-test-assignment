@@ -1,36 +1,36 @@
-import React from 'react';
-import { bindActionCreators, Dispatch } from 'redux';
-import { connect } from 'react-redux';
-import { Empty, Layout } from 'antd';
-import _ from 'lodash';
+import React from 'react'
+import { bindActionCreators, Dispatch } from 'redux'
+import { connect } from 'react-redux'
+import { Empty, Layout } from 'antd'
+import _ from 'lodash'
 
 import {
   postChatMessage,
   markTradeAsPaid,
   deleteTrade
 } from '../store/trades/actions'
-import { TradeState } from '../store/trades/types';
-import { SessionState } from '../store/session/types';
-import { RootState } from '../store';
+import { TradeState } from '../store/trades/types'
+import { SessionState } from '../store/session/types'
+import { RootState } from '../store'
 
-import TradeContent from '../components/Trade/TradeContent';
-import TradeInfo from '../components/Trade/TradeInfo';
-import TradeList from '../components/Trade/TradeList';
+import TradeContent from '../components/Trade/TradeContent'
+import TradeInfo from '../components/Trade/TradeInfo'
+import TradeList from '../components/Trade/TradeList'
 
-interface Props {
-  match: any;
-  location: any;
-  history: any;
-  trades: TradeState;
-  markTradeAsPaid: Function;
-  markMessagesRead: Function;
-  postChatMessage: Function;
-  deleteTrade: Function;
-  session: SessionState;
-  changeRole: Function;
+interface PropTypes {
+  match: any
+  location: any
+  history: any
+  trades: TradeState
+  markTradeAsPaid: Function
+  markMessagesRead: Function
+  postChatMessage: Function
+  deleteTrade: Function
+  session: SessionState
+  changeRole: Function
 }
 
-const Trades: React.SFC<Props> = (props) => {
+const Trades: React.SFC<PropTypes> = (props) => {
   const { match, trades, session } = props
   const { tradeId } = match.params
   const { items, bitcoinExchangeRate } = trades
@@ -65,7 +65,7 @@ const Trades: React.SFC<Props> = (props) => {
           bitcoinExchangeRate={bitcoinExchangeRate} />
       )}
     </Layout>
-  );
+  )
 }
 
 const mapStateToProps = (state: RootState) => {

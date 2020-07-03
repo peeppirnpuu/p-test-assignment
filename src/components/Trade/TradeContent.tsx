@@ -1,21 +1,21 @@
-import React from 'react';
-import { Button, Col, Layout, Row, Tooltip } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import React from 'react'
+import { Button, Col, Layout, Row, Tooltip } from 'antd'
+import { DeleteOutlined } from '@ant-design/icons'
 
-import { TradeType } from '../../store/trades/types';
-import TradeChat from './TradeChat';
+import { TradeType } from '../../store/trades/types'
+import TradeChat from './TradeChat'
 
-interface Props {
-  trade: TradeType;
-  readMessages: any[];
-  markMessagesRead: Function;
-  postChatMessage: Function;
-  deleteTrade: Function;
+interface PropTypes {
+  trade: TradeType
+  readMessages: any[]
+  markMessagesRead: Function
+  postChatMessage: Function
+  deleteTrade: Function
 }
 
-const TradeContent: React.SFC<Props> = (props) => {
-  const { trade } = props;
-  const { paymentMethod, chat } = trade;
+const TradeContent: React.SFC<PropTypes> = (props) => {
+  const { trade } = props
+  const { paymentMethod, chat } = trade
 
   return (
     <Layout style={{ padding: '0 24px 24px' }}>
@@ -48,7 +48,7 @@ const TradeContent: React.SFC<Props> = (props) => {
           postChatMessage={props.postChatMessage} />
       </Layout.Content>
     </Layout>
-  );
+  )
 }
 
-export default TradeContent;
+export default TradeContent

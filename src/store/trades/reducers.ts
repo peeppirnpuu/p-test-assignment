@@ -1,5 +1,5 @@
-import update from 'immutability-helper';
-import _ from 'lodash';
+import update from 'immutability-helper'
+import _ from 'lodash'
 
 import {
   TradeState,

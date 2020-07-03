@@ -1,11 +1,11 @@
-import update from 'immutability-helper';
+import update from 'immutability-helper'
 
 import {
   SessionState,
   UPDATE_SESSION,
   UPDATE_SESSION_SEEN_MESSAGES,
   SessionActionTypes
-} from './types';
+} from './types'
 
 const initialState: SessionState = {
   loggedIn: false,

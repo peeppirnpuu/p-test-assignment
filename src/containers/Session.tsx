@@ -1,18 +1,18 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators, Dispatch } from 'redux'
 
 import {
   changeRole,
   markMessagesRead
-} from '../store/session/actions';
-import { SessionState } from '../store/session/types';
-import { RootState } from '../store';
+} from '../store/session/actions'
+import { SessionState } from '../store/session/types'
+import { RootState } from '../store'
 
 interface WrappedProps {
-  session?: SessionState;
-  changeRole?: Function;
-  markMessagesRead?: Function;
+  session?: SessionState
+  changeRole?: Function
+  markMessagesRead?: Function
 }
 
 export function withSession<P>(WrappedComponent: React.ComponentType<P>) {
@@ -32,8 +32,8 @@ export function withSession<P>(WrappedComponent: React.ComponentType<P>) {
     return bindActionCreators({
       changeRole,
       markMessagesRead
-    }, dispatch);
+    }, dispatch)
   }
 
-  return connect(mapStateToProps, mapDispatchToProps)(Session);
+  return connect(mapStateToProps, mapDispatchToProps)(Session)
 }

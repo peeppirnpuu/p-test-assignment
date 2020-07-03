@@ -1,29 +1,29 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { Layout, List, Avatar } from 'antd';
-import classnames from 'classnames';
-import _ from 'lodash';
+import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { Layout, List, Avatar } from 'antd'
+import classnames from 'classnames'
+import _ from 'lodash'
 
-import { TradeType } from '../../store/trades/types';
+import { TradeType } from '../../store/trades/types'
 
-interface Props {
-  match: any;
-  location: any;
-  history: any;
-  tradeItems: TradeType[];
-  selectedTradeId: string | void;
-  readMessages: any[];
-  bitcoinExchangeRate: number;
+interface PropTypes {
+  match: any
+  location: any
+  history: any
+  tradeItems: TradeType[]
+  selectedTradeId: string | void
+  readMessages: any[]
+  bitcoinExchangeRate: number
 }
 
-const TradeItems: React.SFC<Props> = (props) => {
+const TradeItems: React.SFC<PropTypes> = (props) => {
   const { tradeItems, readMessages, bitcoinExchangeRate } = props
 
   const className = (active: boolean, unread: boolean, paid: boolean) => classnames({
     'ant-list-item--active': active,
     'ant-list-item--unread': unread,
     'ant-list-item--paid': paid
-  });
+  })
 
   return (
     <Layout.Sider width={300} breakpoint="lg" collapsedWidth={0} className="site-layout-background ant-layout-sider-light">
@@ -33,14 +33,14 @@ const TradeItems: React.SFC<Props> = (props) => {
         renderItem={item => {
           const { items } = item.chat
 
-          const unreadMessages = _.difference(items.map(message => message.id), readMessages);
-          const amountInBtc = item.amount/bitcoinExchangeRate;
+          const unreadMessages = _.difference(items.map(message => message.id), readMessages)
+          const amountInBtc = item.amount/bitcoinExchangeRate
 
           return (
             <List.Item
               className={className(props.selectedTradeId === item.id, unreadMessages.length > 0, item.tradeStatusIsPaid)}
               onClick={() => {
-                props.history.push(`/trade/${item.id}`);
+                props.history.push(`/trade/${item.id}`)
               }}>
               <List.Item.Meta
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
@@ -61,7 +61,7 @@ const TradeItems: React.SFC<Props> = (props) => {
         }}
       />
     </Layout.Sider>
-  );
+  )
 }
 
 export default withRouter(TradeItems)

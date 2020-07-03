@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Col, Layout, Menu, Row } from 'antd';
+import { Col, Layout, Menu, Row } from 'antd'
 
 import Logo from './Logo'
 
@@ -33,7 +33,7 @@ const Header: React.SFC<PropTypes> = (props) => {
         </Col>
       </Row>
     </Layout.Header>
-  );
+  )
 }
 
-export default Header;
+export default Header

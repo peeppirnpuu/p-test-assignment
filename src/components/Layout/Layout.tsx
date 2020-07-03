@@ -15,7 +15,7 @@ interface Props {
 
 const Layout: React.SFC<Props> = (props) => {
   return (
-    <AntdLayout>
+    <AntdLayout className="min-height--100vh">
       <Header />
       <Row>
         <Col span={20}>

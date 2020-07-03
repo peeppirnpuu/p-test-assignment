@@ -16,7 +16,7 @@ const TradeInfo: React.SFC<Props> = (props) => {
   const amountInBtc = trade.amount/bitcoinExchangeRate;
 
   return (
-    <Layout.Sider width={300} className="site-layout-background ant-layout-sider-light padding-top--25 text-align--center">
+    <Layout.Sider width={300} breakpoint="lg" collapsedWidth={0} reverseArrow className="site-layout-background ant-layout-sider-light padding-top--25 text-align--center">
       <h2>You are trading with <strong>{buyerUsername}</strong></h2>
       <h3>Started 23 minutes ago</h3>
 

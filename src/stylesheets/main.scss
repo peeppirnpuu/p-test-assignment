@@ -6,17 +6,18 @@ $colorStateOld: #89898b;
 $colorSuccess: #3ebc6c;
 $colorDanger: #d0082b;
 
+.align-items--center { align-items: center; }
 .background-color--white { background-color: $colorNeutralWhite; }
 .color--new { color: $colorStateNew; }
 .color--old { color: $colorStateOld; }
 .color--success { color: $colorSuccess; }
 .color--danger { color: $colorDanger; }
 .display--flex { display: flex; }
-.align-items--center { align-items: center; }
 .justify-content--center { justify-content: center; }
+.margin--auto { margin: auto; }
+.min-height--100vh { min-height: 100vh; }
 .padding-top--25 { padding-top: 25px; }
 .padding-top--50 { padding-top: 50px; }
-.margin--auto { margin: auto; }
 .text-align--center { text-align: center; }
 
 .ant-layout-header {

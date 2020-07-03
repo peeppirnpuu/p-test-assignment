@@ -26,7 +26,7 @@ const TradeItems: React.SFC<Props> = (props) => {
   });
 
   return (
-    <Layout.Sider width={300} className="site-layout-background ant-layout-sider-light">
+    <Layout.Sider width={300} breakpoint="lg" collapsedWidth={0} className="site-layout-background ant-layout-sider-light">
       <List
         itemLayout="horizontal"
         dataSource={tradeItems}

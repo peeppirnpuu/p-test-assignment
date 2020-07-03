@@ -33,7 +33,7 @@ interface Props {
 const Trades: React.SFC<Props> = (props) => {
   const { match, trades, session } = props
   const { tradeId } = match.params
-  const { items } = trades
+  const { items, bitcoinExchangeRate } = trades
   const selectedTrade = typeof tradeId == 'string' && _.find(items, {id: tradeId})
   const readMessages = session.role === 'seller' ? session.seenMessagesByRole.seller : session.seenMessagesByRole.buyer
 
@@ -43,7 +43,8 @@ const Trades: React.SFC<Props> = (props) => {
         <TradeList
           tradeItems={items}
           selectedTradeId={tradeId}
-          readMessages={readMessages} />
+          readMessages={readMessages}
+          bitcoinExchangeRate={bitcoinExchangeRate} />
       )}
 
       {selectedTrade ? (
@@ -60,7 +61,8 @@ const Trades: React.SFC<Props> = (props) => {
       {selectedTrade && (
         <TradeInfo
           trade={selectedTrade}
-          markTradeAsPaid={props.markTradeAsPaid} />
+          markTradeAsPaid={props.markTradeAsPaid}
+          bitcoinExchangeRate={bitcoinExchangeRate} />
       )}
     </Layout>
   );

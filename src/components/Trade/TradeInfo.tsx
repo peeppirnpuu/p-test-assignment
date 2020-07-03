@@ -6,11 +6,14 @@ import { TradeType } from '../../store/trades/types';
 interface Props {
   trade: TradeType;
   markTradeAsPaid: Function;
+  bitcoinExchangeRate: number;
 }
 
 const TradeInfo: React.SFC<Props> = (props) => {
-  const { trade } = props
+  const { trade, bitcoinExchangeRate } = props
   const { buyerUsername } = trade
+
+  const amountInBtc = trade.amount/bitcoinExchangeRate;
 
   return (
     <Layout.Sider width={300} className="site-layout-background ant-layout-sider-light padding-top--25 text-align--center">
@@ -38,10 +41,10 @@ const TradeInfo: React.SFC<Props> = (props) => {
           <Statistic title="Trade hash" value="45aFD3Rr" />
         </Col>
         <Col span={12}>
-          <Statistic title="Amount USD" value="25.00" />
+          <Statistic title="Amount USD" value={trade.amount.toFixed(2)} />
         </Col>
         <Col span={12}>
-          <Statistic title="Amount BTC" value="0.0023424" />
+          <Statistic title="Amount BTC" value={amountInBtc.toFixed(8)} />
         </Col>
       </Row>
     </Layout.Sider>

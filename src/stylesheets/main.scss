@@ -70,6 +70,8 @@ $colorDanger: #d0082b;
         &::after {
           color: $colorStateNew;
           content: "PAID";
+          font-size: 12px;
+          margin-top: 8px;
         }
       }
     }

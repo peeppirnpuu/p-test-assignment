@@ -15,8 +15,11 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/redux-actions": "^2.6.1",
+    "@types/redux-logger": "^3.0.8",
+    "@types/redux-promise": "^0.5.29",
     "antd": "^4.4.0",
     "classnames": "^2.2.6",
+    "cross-fetch": "^3.0.5",
     "immutability-helper": "^3.1.1",
     "lodash": "^4.17.15",
     "moment": "^2.27.0",
@@ -28,6 +31,9 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
     "typescript": "~3.7.2"
   },
   "scripts": {

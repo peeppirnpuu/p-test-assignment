@@ -21,9 +21,11 @@ export interface TradeType {
 
 export interface TradeState {
   items: TradeType[];
+  bitcoinExchangeRate: number;
 };
 
 export const CREATE_CHAT_ITEM = 'CREATE_CHAT_ITEM';
+export const UPDATE_TRADE_BITCOIN_VALUE = 'UPDATE_TRADE_BITCOIN_VALUE';
 export const UPDATE_TRADE_STATUS_PAID = 'UPDATE_TRADE_STATUS_PAID';
 export const DELETE_TRADE = 'DELETE_TRADE';
 
@@ -31,6 +33,11 @@ interface PostChatMessageAction {
   type: typeof CREATE_CHAT_ITEM;
   tradeId: string;
   payload: ChatItemType;
+}
+
+interface UpdateTradeBitcoinValueAction {
+  type: typeof UPDATE_TRADE_BITCOIN_VALUE;
+  payload: number;
 }
 
 interface UpdateTradeStatusPaidAction {
@@ -43,4 +50,4 @@ interface DeleteTradeAction {
   tradeId: string;
 }
 
-export type TradeActionTypes = PostChatMessageAction | UpdateTradeStatusPaidAction | DeleteTradeAction
+export type TradeActionTypes = PostChatMessageAction | UpdateTradeBitcoinValueAction | UpdateTradeStatusPaidAction | DeleteTradeAction

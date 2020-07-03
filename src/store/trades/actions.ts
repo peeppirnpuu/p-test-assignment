@@ -1,9 +1,32 @@
+import { Dispatch } from 'redux';
+import fetch from 'cross-fetch';
+import axios from 'axios';
+
 import {
   CREATE_CHAT_ITEM,
+  UPDATE_TRADE_BITCOIN_VALUE,
   UPDATE_TRADE_STATUS_PAID,
   DELETE_TRADE,
   TradeActionTypes
 } from './types'
+
+export function receiveBitcoinData(rate: number): TradeActionTypes {
+  return {
+    type: UPDATE_TRADE_BITCOIN_VALUE,
+    payload: rate
+  }
+}
+
+export function fetchBitcoinData(): any {
+  return (dispatch: Dispatch) => {
+    return fetch('//api.coindesk.com/v1/bpi/currentprice/USD.json')
+      .then(response => response.json())
+      .then(json => {
+        console.log(json.bpi.USD)
+        dispatch(receiveBitcoinData(json.bpi.USD.rate_float))
+      })
+  }
+}
 
 export function postChatMessage(tradeId: string, message: string, role: string): TradeActionTypes {
   return {

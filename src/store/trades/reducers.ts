@@ -4,6 +4,7 @@ import _ from 'lodash';
 import {
   TradeState,
   CREATE_CHAT_ITEM,
+  UPDATE_TRADE_BITCOIN_VALUE,
   UPDATE_TRADE_STATUS_PAID,
   DELETE_TRADE,
   TradeActionTypes
@@ -175,7 +176,8 @@ const initialState: TradeState = {
         ]
       }
     },
-  ]
+  ],
+  bitcoinExchangeRate: 0
 }
 
 export function tradesReducer(
@@ -194,6 +196,10 @@ export function tradesReducer(
             }
           }
         }
+      })
+    case UPDATE_TRADE_BITCOIN_VALUE:
+      return update(state, {
+        bitcoinExchangeRate: {$set: action.payload}
       })
     case UPDATE_TRADE_STATUS_PAID:
       return update(state, {

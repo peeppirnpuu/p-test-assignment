@@ -13,10 +13,11 @@ interface Props {
   tradeItems: TradeType[];
   selectedTradeId: string | void;
   readMessages: any[];
+  bitcoinExchangeRate: number;
 }
 
 const TradeItems: React.SFC<Props> = (props) => {
-  const { tradeItems, readMessages } = props
+  const { tradeItems, readMessages, bitcoinExchangeRate } = props
 
   const className = (active: boolean, unread: boolean, paid: boolean) => classnames({
     'ant-list-item--active': active,
@@ -33,6 +34,7 @@ const TradeItems: React.SFC<Props> = (props) => {
           const { items } = item.chat
 
           const unreadMessages = _.difference(items.map(message => message.id), readMessages);
+          const amountInBtc = item.amount/bitcoinExchangeRate;
 
           return (
             <List.Item
@@ -50,7 +52,7 @@ const TradeItems: React.SFC<Props> = (props) => {
                 description={
                   <div>
                     {item.paymentMethod}<br />
-                    <small>{item.amount}USD</small>
+                    <small>{item.amount} USD {bitcoinExchangeRate !== 0 && (<span>({amountInBtc.toFixed(8)} BTC)</span>)}</small>
                   </div>
                 }
               />

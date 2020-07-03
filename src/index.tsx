@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import ReduxPromise from 'redux-promise';
 import { Provider } from 'react-redux';
 import reducers from './store';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(reducers);
+import { fetchBitcoinData } from './store/trades/actions'
+
+const loggerMiddleware = createLogger();
+
+const store = createStore(
+  reducers,
+  applyMiddleware(
+    thunkMiddleware, // lets us dispatch() functions
+    ReduxPromise,
+    loggerMiddleware // neat middleware that logs actions
+  )
+);
+
+store.dispatch(fetchBitcoinData())
 
 // StrictMode renders components twice (on dev but not production) in
 // order to detect any problems with your code and warn you about them

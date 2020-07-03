@@ -1,10 +1,12 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Col, Layout, Menu, Row } from 'antd';
 
-interface Props {
+import Logo from './Logo'
+
+interface PropTypes {
 }
 
-const Header: React.SFC<Props> = (props) => {
+const Header: React.SFC<PropTypes> = (props) => {
   const menuItems: string[] = [
     'Buy bitcoins',
     'Sell bitcoins',
@@ -15,12 +17,18 @@ const Header: React.SFC<Props> = (props) => {
 
   return (
     <Layout.Header className="header">
-      <div className="logo" />
-      {menuItems.length > 0 && (
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-          {menuItems.map((title, index) => <Menu.Item key={index}>{title}</Menu.Item>)}
-        </Menu>
-      )}
+      <Row>
+        <Col span={4} className="display--flex align-items--center justify-content--center">
+          <Logo />
+        </Col>
+        <Col span={20}>
+          {menuItems.length > 0 && (
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+              {menuItems.map((title, index) => <Menu.Item key={index}>{title}</Menu.Item>)}
+            </Menu>
+          )}
+        </Col>
+      </Row>
     </Layout.Header>
   );
 }

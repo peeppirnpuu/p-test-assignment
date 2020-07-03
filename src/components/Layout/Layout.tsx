@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Layout as AntdLayout, Row, Col } from 'antd';
+import { Col, Layout as AntdLayout, Row } from 'antd';
 
 import Header from './Header';
 import RoleSwitcher from './RoleSwitcher';
